@@ -86,7 +86,8 @@ if st.button("Predict"):
         #     st.write(f"Ham prob: {proba[0]:.2f}, Spam prob: {proba[1]:.2f}")
 
         # 4. Show result
-        if result == 1:
+        if result == 0:
             st.error("This message looks like **SPAM**.")
         else:
             st.success("This message looks **NOT SPAM**.")
+
