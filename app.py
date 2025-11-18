@@ -7,8 +7,7 @@ import nltk
 import os
 # Set custom NLTK data path
 nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
-# Make sure the folder exists (IMPORTANT)
-os.makedirs(nltk_data_path, exist_ok=True)
+
 nltk.data.path.append(nltk_data_path)
 
 # Download required NLTK data to the custom folder
@@ -62,6 +61,7 @@ if st.button('Predict'):
         st.header("Spam")
     else:
         st.header("Not Spam")
+
 
 
 
