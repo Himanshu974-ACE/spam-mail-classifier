@@ -1,7 +1,12 @@
+
+
 import streamlit as st
 import pickle
 import string
 import nltk
+import nltk
+nltk.download('punkt', quiet=True)
+nltk.download('stopwords', quiet=True)
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
@@ -49,4 +54,5 @@ if st.button('Predict'):
         st.header("Spam")
     else:
         st.header("Not Spam")
+
 
