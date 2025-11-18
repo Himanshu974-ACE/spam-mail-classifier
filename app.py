@@ -5,14 +5,21 @@ import pickle
 import string
 import nltk
 import os
-# Set custom NLTK data path
-nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
 
-nltk.data.path.append(nltk_data_path)
 
-# Download required NLTK data to the custom folder
-nltk.download("punkt", download_dir=nltk_data_path, quiet=True)
-nltk.download("stopwords", download_dir=nltk_data_path, quiet=True)
+# make sure these are available both locally and on Streamlit Cloud
+def setup_nltk():
+    try:
+        nltk.data.find('tokenizers/punkt')
+    except LookupError:
+        nltk.download('punkt')
+
+    try:
+        nltk.data.find('corpora/stopwords')
+    except LookupError:
+        nltk.download('stopwords')
+
+setup_nltk()
 
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
@@ -61,6 +68,7 @@ if st.button('Predict'):
         st.header("Spam")
     else:
         st.header("Not Spam")
+
 
 
 
