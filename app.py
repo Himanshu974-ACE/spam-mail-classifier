@@ -4,6 +4,7 @@ import streamlit as st
 import pickle
 import string
 import nltk
+import os
 # Set custom NLTK data path
 nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
 nltk.data.path.append(nltk_data_path)
@@ -59,6 +60,7 @@ if st.button('Predict'):
         st.header("Spam")
     else:
         st.header("Not Spam")
+
 
 
 
