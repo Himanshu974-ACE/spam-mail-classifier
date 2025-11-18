@@ -6,8 +6,6 @@ import string
 import nltk
 import os
 
-
-# make sure these are available both locally and on Streamlit Cloud
 def setup_nltk():
     try:
         nltk.data.find('tokenizers/punkt')
@@ -15,11 +13,15 @@ def setup_nltk():
         nltk.download('punkt')
 
     try:
+        nltk.data.find('tokenizers/punkt_tab')
+    except LookupError:
+        nltk.download('punkt_tab')
+
+    try:
         nltk.data.find('corpora/stopwords')
     except LookupError:
         nltk.download('stopwords')
 
-setup_nltk()
 
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
@@ -68,6 +70,7 @@ if st.button('Predict'):
         st.header("Spam")
     else:
         st.header("Not Spam")
+
 
 
 
